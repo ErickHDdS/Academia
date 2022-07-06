@@ -8,6 +8,7 @@ import Select from "@mui/material/Select";
 import { FormProvider } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import CheckIcon from "@mui/icons-material/Check";
+import GetUser from "../../components/GetUser";
 
 import "./style.css";
 
@@ -29,28 +30,7 @@ export default function Teacher() {
       <form className="teacher-main" onSubmit={""}>
         <h1 className="teacher-title">Cadastro de Treinos</h1>
 
-        <Box
-          sx={{
-            "& .MuiTextField-root": { m: 1, width: "25ch" },
-          }}
-        >
-          <div>
-            <FormControl sx={{ m: 1, minWidth: 100 }}>
-              <InputLabel>Aluno</InputLabel>
-              <Select
-                value={student}
-                onChange={handleChangeStudent}
-                autoWidth
-                label="Aluno"
-              >
-                <MenuItem value={"Erick"}>Erick</MenuItem>
-                <MenuItem value={"Tarcisio"}>Tarcisio</MenuItem>
-                <MenuItem value={"Laguardia"}>Laguardia</MenuItem>
-                <MenuItem value={"Iagor"}>Iagor</MenuItem>
-              </Select>
-            </FormControl>
-          </div>
-        </Box>
+        <GetUser />
 
         <Box sx={{ "& > :not(style)": { m: 1 } }}>
           <TextField label="Exercício" defaultValue="" variant="standard" />
