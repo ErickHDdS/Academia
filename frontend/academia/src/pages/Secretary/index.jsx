@@ -23,9 +23,6 @@ export default function Secretary() {
     defaultValues: {
       Name: "",
       Birthday: new Date(),
-      Password: "",
-      Zipcode: "",
-      Address: "",
       CPF: "",
     },
   });
