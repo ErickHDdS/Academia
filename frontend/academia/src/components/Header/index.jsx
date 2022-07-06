@@ -21,7 +21,7 @@ function Header() {
         </Box>
 
         <Box className="menu" sx={{ "& > :not(style)": { m: 3 } }}>
-          <Link underline="none" color={"#FFFFFF"} href="/">
+          <Link underline="none" color={"#FFFFFF"} href="/login">
             <PersonIcon />
           </Link>
           <Link underline="none" color={"#FFFFFF"} href="/">
