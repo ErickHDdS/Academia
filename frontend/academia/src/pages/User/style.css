@@ -1,0 +1,22 @@
+.user-main {
+  background-color: var(--white);
+  text-align: -webkit-center;
+  min-height: 730px;
+  align-items: center;
+  display: grid;
+  justify-content: center;
+}
+
+.user-title {
+  margin: 0;
+  padding: 30px;
+}
+
+.data-doctor,
+.data-training {
+  padding: 20px;
+}
+
+.data-training {
+  padding-bottom: 50px;
+}
