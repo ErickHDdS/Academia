@@ -12,10 +12,10 @@ import CheckIcon from "@mui/icons-material/Check";
 import "./style.css";
 
 export default function Teacher() {
-  const [aluno, setAluno] = useState("");
+  const [student, setStudent] = useState("");
 
-  const handleChangeAluno = (event) => {
-    setAluno(event.target.value);
+  const handleChangeStudent = (event) => {
+    setStudent(event.target.value);
   };
 
   const [repetitions, setRepetitions] = useState("");
@@ -38,8 +38,8 @@ export default function Teacher() {
             <FormControl sx={{ m: 1, minWidth: 100 }}>
               <InputLabel>Aluno</InputLabel>
               <Select
-                value={aluno}
-                onChange={handleChangeAluno}
+                value={student}
+                onChange={handleChangeStudent}
                 autoWidth
                 label="Aluno"
               >
