@@ -1,6 +1,5 @@
 import PhysicalExam from "../../components/PhysicalExam";
 import Trainig from "../../components/Training";
-import IMC from "../../components/IMC";
 
 import "./style.css";
 
@@ -12,10 +11,6 @@ export default function User() {
       <div className="data-doctor">
         <h3>Dados médicos</h3>
         <PhysicalExam />
-      </div>
-
-      <div>
-        <IMC />
       </div>
 
       <div className="data-training">
