@@ -1,0 +1,6 @@
+.home-main {
+  min-height: 730px;
+  align-items: center;
+  display: grid;
+  justify-content: center;
+}

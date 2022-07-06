@@ -4,6 +4,9 @@ import Paper from "@mui/material/Paper";
 import { Box } from "@mui/material";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
+
+import "./style.css";
+
 const bucketURL =
   "https://t4rcisio-static-website.s3.amazonaws.com/static_website/images/";
 const range = 5;
@@ -41,7 +44,7 @@ function Home() {
   console.log(images);
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex" }} className="home-main">
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
@@ -55,7 +58,7 @@ function Home() {
                 component="img"
                 sx={{
                   display: "flex",
-                  height: "443px",
+                  height: "730px",
                   overflow: "hidden",
                   width: "100%",
                 }}
