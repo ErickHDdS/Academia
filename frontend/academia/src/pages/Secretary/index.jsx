@@ -2,7 +2,7 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import BadgeIcon from "@mui/icons-material/Badge";
-import User from "../../components/User";
+import UserRegister from "../../components/UserRegister";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -41,7 +41,7 @@ export default function Secretary() {
           }}
         >
           <div className="user-infos">
-            <User />
+            <UserRegister />
             <div className="user-registration">
               <Modalities />
               <Box className="plan">
