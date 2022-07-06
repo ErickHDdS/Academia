@@ -13,10 +13,10 @@ import "./style.css";
 function User() {
   const { control } = useFormContext();
 
-  const [bandeira, setBandeira] = useState("");
+  const [flag, setFlag] = useState("");
 
-  const handleChangeBandeira = (event) => {
-    setBandeira(event.target.value);
+  const handleChangeFlag = (event) => {
+    setFlag(event.target.value);
   };
 
   return (
@@ -94,9 +94,10 @@ function User() {
 
         <TextField
           select
+          required
           label="Bandeira"
-          value={bandeira}
-          onChange={handleChangeBandeira}
+          value={flag}
+          onChange={handleChangeFlag}
           variant="standard"
         >
           <MenuItem value={"ELO"}>ELO</MenuItem>
