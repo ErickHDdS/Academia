@@ -1,12 +1,5 @@
-import { useState } from "react";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import { FormProvider } from "react-hook-form";
-import TextField from "@mui/material/TextField";
 import CheckIcon from "@mui/icons-material/Check";
 import GetUser from "../../components/GetUser";
 import Trainig from "../../components/Training";
