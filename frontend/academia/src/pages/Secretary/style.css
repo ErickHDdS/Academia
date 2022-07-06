@@ -1,6 +1,10 @@
 .userRegister-main {
   background-color: var(--white);
   text-align: -webkit-center;
+  min-height: 730px;
+  align-items: center;
+  justify-content: center;
+  display: grid;
 }
 
 .userRegister-title {
@@ -15,4 +19,8 @@
 
 .plan {
   margin-left: 100px;
+}
+
+.button-register {
+  justify-self: center;
 }

@@ -70,6 +70,7 @@ export default function Teacher() {
         </Box>
 
         <Button
+          sx={{ maxWidth: 250 }}
           className="button-register"
           variant="contained"
           endIcon={<CheckIcon />}

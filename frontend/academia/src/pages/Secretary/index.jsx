@@ -65,6 +65,7 @@ export default function Secretary() {
           </div>
         </Box>
         <Button
+          sx={{ maxWidth: 250 }}
           className="button-register"
           variant="contained"
           endIcon={<BadgeIcon />}

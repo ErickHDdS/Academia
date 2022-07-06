@@ -1,9 +1,17 @@
 .teacher-main {
   background-color: var(--white);
   text-align: -webkit-center;
+  min-height: 730px;
+  align-items: center;
+  display: grid;
+  justify-content: center;
 }
 
 .teacher-title {
   margin: 0;
   padding: 30px;
+}
+
+.button-register {
+  justify-self: center;
 }
