@@ -9,6 +9,10 @@
   --white: #f5f5f5;
 
   --gray: #5e5e5e;
+
+  --table-header-color: #73deff;
+  --table-primary-color: #85bce6;
+  --table-secondary-color: #7abafa;
 }
 
 * {
