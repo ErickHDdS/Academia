@@ -3,6 +3,7 @@ import FormControl from "@mui/material/FormControl";
 import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormHelperText from "@mui/material/FormHelperText";
+import IMC from "../IMC";
 
 import "./style.css";
 
@@ -99,6 +100,10 @@ export default function PhysicalExam() {
           />
           <FormHelperText>IMC</FormHelperText>
         </FormControl>
+
+        <div>
+          <IMC />
+        </div>
       </div>
     </section>
   );
