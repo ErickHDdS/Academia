@@ -11,12 +11,7 @@ import GetUser from "../../components/GetUser";
 import "./style.css";
 
 export default function Doctor() {
-  const [patient, setPatient] = useState("");
   const [result, setResult] = useState("");
-
-  const handleChangePatient = (event) => {
-    setPatient(event.target.value);
-  };
 
   const handleChangeResult = (event) => {
     setResult(event.target.value);
