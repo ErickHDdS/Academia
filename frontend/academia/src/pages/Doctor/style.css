@@ -1,0 +1,13 @@
+.doctor-main {
+  background-color: var(--white);
+  text-align: -webkit-center;
+  min-height: 730px;
+  align-items: center;
+  display: grid;
+  justify-content: center;
+}
+
+.doctor-title {
+  margin: 0;
+  padding: 30px;
+}
