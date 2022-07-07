@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { useFormContext, Controller } from "react-hook-form";
+import { Controller } from "react-hook-form";
 
 import { useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
@@ -11,8 +11,6 @@ import MenuItem from "@mui/material/MenuItem";
 import "./style.css";
 
 function User() {
-  const { control } = useFormContext();
-
   const [flag, setFlag] = useState("");
 
   const handleChangeFlag = (event) => {
@@ -25,7 +23,6 @@ function User() {
         <h2>Dados pessoais</h2>
         <Controller
           name="Name"
-          control={control}
           render={({ field }) => (
             <TextField required label="Nome" variant="standard" {...field} />
           )}
@@ -33,7 +30,6 @@ function User() {
 
         <Controller
           name="CPF"
-          control={control}
           render={({ field }) => (
             <TextField
               required
@@ -47,7 +43,6 @@ function User() {
 
         <Controller
           name="Identidade"
-          control={control}
           render={({ field }) => (
             <TextField
               required
@@ -60,7 +55,6 @@ function User() {
 
         <Controller
           name="Birthday"
-          control={control}
           render={({ field }) => (
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DatePicker
@@ -80,7 +74,6 @@ function User() {
         <h2>Dados de pagamento</h2>
         <Controller
           name="Número do cartão"
-          control={control}
           render={({ field }) => (
             <TextField
               required
@@ -107,7 +100,6 @@ function User() {
 
         <Controller
           name="Nome Impresso"
-          control={control}
           render={({ field }) => (
             <TextField
               required
