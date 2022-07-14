@@ -3,6 +3,7 @@ import ErrorAPI from '../error/ErrorAPI.js';
 import { entityIfHeIsPresent } from './entity.js';
 import { encryptPhrase, compareWithEncrypted } from './bcrypt.js';
 import { generateJwtToken } from './jwt.js';
+import { createCreditCard } from './creditCard.js';
 
 const cpfAlreadyExistError = new ErrorAPI(409, 'CPF already exists');
 
@@ -45,6 +46,16 @@ export const getToken = async (loginData) => {
 
   return generateJwtToken({ userId, userType });
 };
+
+export const createUserWithCreditCard = async (userAndCreditCardData) => {
+  const userCreated = await createUser(userAndCreditCardData);
+  const creditCardCreated = await createCreditCard(userCreated.getDataValue('id'), userAndCreditCardData);
+
+  return {
+    creditCardData: creditCardCreated.dataValues,
+    userData: userCreated.dataValues
+  };
+}
 
 export const createUser = async (registerData) => {
   const hashedPassword = await encryptPhrase(registerData.password);

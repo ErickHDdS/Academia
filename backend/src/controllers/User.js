@@ -2,18 +2,14 @@ import { UserService } from '../services/index.js';
 
 class User {
   static async register(req, res) {
-    const user = await UserService.createUser(req.body);
+    const { userData, creditCardData } = await UserService.createUserWithCreditCard(req.body);
+
+    delete userData.password;
+    delete creditCardData.userId;
 
     return res.status(201).json({
-      id: user.getDataValue('id'),
-      name: user.getDataValue('name'),
-      email: user.getDataValue('email'),
-      identificationNumber: user.getDataValue('identificationNumber'),
-      document: user.getDataValue('document'),
-      office: user.getDataValue('office'),
-      type: user.getDataValue('type'),
-      updatedAt: user.getDataValue('updatedAt'),
-      createdAt: user.getDataValue('createdAt'),
+      user: userData,
+      creditCard: creditCardData
     });
   }
 
