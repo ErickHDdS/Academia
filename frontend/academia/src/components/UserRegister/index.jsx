@@ -4,13 +4,21 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Controller } from "react-hook-form";
+import MenuItem from "@mui/material/MenuItem";
+import Input from "@mui/material/Input";
+import InputLabel from "@mui/material/InputLabel";
+import InputAdornment from "@mui/material/InputAdornment";
+import FormControl from "@mui/material/FormControl";
+import IconButton from "@mui/material/IconButton";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 import { useState } from "react";
-import MenuItem from "@mui/material/MenuItem";
 
 import "./style.css";
 
 function User() {
+  const [showPassword, setShowPassword] = useState(false);
   const [flag, setFlag] = useState("");
 
   const handleChangeFlag = (event) => {
@@ -22,14 +30,14 @@ function User() {
       <Box>
         <h2>Dados pessoais</h2>
         <Controller
-          name="Name"
+          name="name"
           render={({ field }) => (
             <TextField required label="Nome" variant="standard" {...field} />
           )}
         />
 
         <Controller
-          name="CPF"
+          name="cpf"
           render={({ field }) => (
             <TextField
               required
@@ -42,7 +50,7 @@ function User() {
         />
 
         <Controller
-          name="Identidade"
+          name="identity"
           render={({ field }) => (
             <TextField
               required
@@ -54,7 +62,7 @@ function User() {
         />
 
         <Controller
-          name="Birthday"
+          name="birthDate"
           render={({ field }) => (
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DatePicker
@@ -68,6 +76,29 @@ function User() {
             </LocalizationProvider>
           )}
         />
+
+        <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
+          <InputLabel htmlFor="standard-adornment-password">Senha</InputLabel>
+          <Controller
+            name="password"
+            render={({ field }) => (
+              <Input
+                {...field}
+                type={showPassword ? "text" : "password"}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              />
+            )}
+          />
+        </FormControl>
       </Box>
 
       <Box>
