@@ -9,6 +9,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useForm, FormProvider } from "react-hook-form";
 import Modalities from "../../components/Modalities";
+import * as SecretaryService from "../../services/secretary";
 
 import "./style.css";
 
@@ -21,18 +22,27 @@ export default function Secretary() {
 
   const methods = useForm({
     defaultValues: {
-      Name: "",
       Birthday: new Date(),
-      CPF: "",
     },
   });
 
-  // const onSubmit = async (forms) => {
-  // };
+  const onSubmit = async (forms) => {
+    console.log(forms);
+    const loginReqBody = {
+      ...forms,
+    };
+
+    const res = await SecretaryService.register(loginReqBody);
+
+    if (res.status === 200) alert("Usuário registrado com sucesso");
+  };
 
   return (
     <FormProvider {...methods}>
-      <form className="userRegister-main" onSubmit={""}>
+      <form
+        className="userRegister-main"
+        onSubmit={methods.handleSubmit(onSubmit)}
+      >
         <h1 className="userRegister-title">Cadastro de Usuários</h1>
 
         <Box
