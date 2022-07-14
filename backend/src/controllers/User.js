@@ -18,9 +18,9 @@ class User {
   }
 
   static async login(req, res) {
-    const tokens = await UserService.getToken(req.body);
+    const jwt = await UserService.getToken(req.body);
 
-    return res.status(200).json(tokens);
+    return res.status(200).json({ jwt });
   }
 
   static async findAll(req, res) {
