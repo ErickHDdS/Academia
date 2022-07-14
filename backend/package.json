@@ -1,0 +1,26 @@
+{
+  "name": "backend-les1-tp2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ErickHDdS/Academia",
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ./src/index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dayjs": "^1.10.7",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "sequelize": "~6.12.0-beta.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize-cli": "^6.3.0"
+  }
+}

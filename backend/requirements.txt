@@ -1,8 +1,0 @@
-Django==3.2.13
-djangorestframework
-markdown
-django-filter
-psycopg2
-PyJWT
-django-environ
-django-cors-headers
