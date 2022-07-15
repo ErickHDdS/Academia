@@ -6,7 +6,7 @@
 
 1. [NodeJs](https://nodejs.org/)
 2. [PostgreSQL](https://www.postgresql.org/)
-3. [Yarn](https://classic.yarnpkg.com/en/) *(Optional)*
+3. [Yarn](https://yarnpkg.com/) *(Optional)*
 
 ### Configure environment
 
