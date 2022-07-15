@@ -67,7 +67,7 @@ const GetUserCPF = () => {
           </Box>
         </Grid>
         <Grid item>
-          <Button variant="contained" disableElevation onClick={() => search()}>
+          <Button variant="contained" disableElevation onClick={() => alert()}>
             Buscar
           </Button>
         </Grid>
