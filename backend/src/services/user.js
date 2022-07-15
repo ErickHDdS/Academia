@@ -68,8 +68,11 @@ export const createUser = async (registerData) => {
   });
 };
 
-export const getAllUsers = () => UserModel.findAll({
+export const getAllPersons = () => UserModel.findAll({
   attributes: ['id', 'name'],
+  where: {
+    type: 'PERSON'
+  }
 });
 
 export const update = async (id, registerData) => {
