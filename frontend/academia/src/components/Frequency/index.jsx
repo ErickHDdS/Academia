@@ -10,6 +10,11 @@ import "./style.css";
 export default function Frequency() {
   const [frequencySchedulesUser, setFrequencySchedulesUser] = useState("");
   const [frequencyDaysUser, setFrequencyDaysUser] = useState("");
+  const [planUser, setPlanUser] = useState("Mensal");
+
+  const handleChange = (event) => {
+    setPlanUser(event.target.value);
+  };
 
   const handleChangeSchedules = (event) => {
     setFrequencySchedulesUser(event.target.value);
@@ -67,6 +72,17 @@ export default function Frequency() {
             <MenuItem value={"2"}>2</MenuItem>
             <MenuItem value={"3"}>3</MenuItem>
             <MenuItem value={"7"}>7</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+
+      <Box sx={{ minWidth: 150 }}>
+        <FormControl>
+          <InputLabel>Plano</InputLabel>
+          <Select value={planUser} label="Plano" onChange={handleChange}>
+            <MenuItem value={"Mensal"}>Mensal</MenuItem>
+            <MenuItem value={"Semestral"}>Semestral</MenuItem>
+            <MenuItem value={"Anual"}>Anual</MenuItem>
           </Select>
         </FormControl>
       </Box>
