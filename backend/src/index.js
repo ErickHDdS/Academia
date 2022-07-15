@@ -12,7 +12,7 @@ const server = express();
 server.use(json());
 server.use(
   cors({
-    origin: "http://localhost:1403",
+    origin: process.env.ORIGIN,
     credentials: true,
   })
 );
