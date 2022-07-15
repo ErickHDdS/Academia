@@ -8,5 +8,6 @@ router.post('/', routerAdapter(UserController.register));
 router.post('/login', routerAdapter(UserController.login));
 router.post('/logout', routerAdapter(UserController.logout));
 router.get('/person', routerAdapter(UserController.findAllPerson));
+router.get('/:cpf', routerAdapter(UserController.findByCpf));
 
 export default router;

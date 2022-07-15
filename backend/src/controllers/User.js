@@ -28,5 +28,15 @@ class User {
 
     return res.status(200).json(users);
   }
+
+  static async findByCpf(req, res) {
+    const { cpf } = req.params;
+    const user = await UserService.searchUserByCpf(cpf);
+
+    delete user.dataValues.password;
+
+    return res.status(200).json(user.dataValues);
+  }
 }
+
 export default User;
