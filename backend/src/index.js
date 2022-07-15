@@ -10,7 +10,12 @@ import errorHandler from './error/errorHandler.js';
 const server = express();
 
 server.use(json());
-server.use(cors());
+server.use(
+  cors({
+    origin: "http://localhost:1403",
+    credentials: true,
+  })
+);
 server.use(cookieParser());
 
 server.use('/api', routes);
