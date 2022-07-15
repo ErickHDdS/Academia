@@ -104,7 +104,7 @@ function User() {
       <Box>
         <h2>Dados de pagamento</h2>
         <Controller
-          name="Número do cartão"
+          name="numberCard"
           render={({ field }) => (
             <TextField
               required
@@ -116,21 +116,20 @@ function User() {
           )}
         />
 
-        <TextField
-          select
-          required
-          label="Bandeira"
-          value={flag}
-          onChange={handleChangeFlag}
-          variant="standard"
-        >
-          <MenuItem value={"ELO"}>ELO</MenuItem>
-          <MenuItem value={"MasterCard"}>MasterCard</MenuItem>
-          <MenuItem value={"VISA"}>VISA</MenuItem>
-        </TextField>
+        <Controller
+          name="flagCard"
+          render={({ field }) => (
+            <TextField
+              required
+              label="Bandeira"
+              variant="standard"
+              {...field}
+            />
+          )}
+        />
 
         <Controller
-          name="Nome Impresso"
+          name="namePrintCard"
           render={({ field }) => (
             <TextField
               required
