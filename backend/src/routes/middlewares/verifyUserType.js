@@ -10,4 +10,14 @@ function verifyUserType(request, next, typeUser) {
   }
 }
 
-export default verifyUserType;
+export function verifyIsSecretary(req, res, next) {
+  return verifyUserType(req, next, "SECRETARY");
+}
+
+export function verifyIsProfessor(req, res, next) {
+  return verifyUserType(req, next, "PROFESSOR");
+}
+
+export function verifyIsDoctor(req, res, next) {
+  return verifyUserType(req, next, "DOCTOR");
+}

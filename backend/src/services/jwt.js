@@ -25,18 +25,8 @@ function authenticateUser(token) {
   }
 }
 
-function getAuthorization(headerAuthorization) {
-  if (!headerAuthorization) throw new ErrorAPI(401, 'Token is missing in header of request');
-
-  const [verifyType, token] = headerAuthorization.split(' ');
-
-  if (verifyType !== 'Bearer') throw new ErrorAPI(401, 'Bearer is missing in header of request');
-
-  return token;
-}
-
-export function checkUserLogged(headerAuthorization) {
-  const token = getAuthorization(headerAuthorization);
+export function checkUserLogged(token) {
+  if (!token) throw new ErrorAPI(401, 'Token is missing in cookies of request');
 
   return authenticateUser(token);
 }
