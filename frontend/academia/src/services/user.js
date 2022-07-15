@@ -1,20 +1,8 @@
-import api, { setApiToken, removeApiToken } from "../config/api";
+import api from "../config/api";
 import jwt_decode from "jwt-decode";
 
-export const setUserToken = (jwtToken, setUser) => {
-  setApiToken(jwtToken);
-
-  setUser(jwt_decode(jwtToken));
-
-  window.localStorage.setItem("@academia-mfal/user-token", jwtToken);
-};
-
-export const login = async (body, setUser) => {
+export const login = async (body) => {
   const { data } = await api.post("/user/login", body);
 
-  setUserToken(data.jwt, setUser);
+  return jwt_decode(data.jwt);
 };
-
-// export const logout = (setUser) => {
-//   setUser(null);
-// };

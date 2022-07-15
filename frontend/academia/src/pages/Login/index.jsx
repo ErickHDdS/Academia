@@ -12,7 +12,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
-import { login, setUserToken } from "../../services/user";
+import { login } from "../../services/user";
 
 import "./style.css";
 
@@ -27,8 +27,9 @@ export default function Login() {
     },
   });
 
-  const submitLogin = (data) => {
-    login(data, setUser);
+  const submitLogin = async (data) => {
+    setUser(await login(data));
+
     switch (user.userType) {
       case "PERSON":
         window.location.href = "/user";
@@ -46,16 +47,6 @@ export default function Login() {
         console.log("unidentified user");
     }
   };
-
-  useEffect(() => {
-    const jwtUserToken = window.localStorage.getItem(
-      "@academia-mfal/user-token"
-    );
-
-    if (jwtUserToken) {
-      setUserToken(jwtUserToken, setUser);
-    }
-  }, []);
 
   return (
     <form onSubmit={handleSubmit(submitLogin)}>
