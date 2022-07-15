@@ -11,23 +11,12 @@ export const userIfIsFound = (user) => entityIfHeIsPresent(user, 'User not found
 
 const getUserByCPF = (cpf) => UserModel.findOne({ where: { cpf } });
 
-export const getUserById = async (id) => {
-  const user = await UserModel.findByPk(id, {
-    attributes: {
-      exclude: ['password'],
-    },
-  });
+export const searchUserByCpf = async (cpf) => {
+  const user = await getUserByCPF(cpf);
 
   return userIfIsFound(user);
 };
 
-export const deleteUser = async (id) => {
-  const user = await getUserById(id);
-
-  await user.destroy();
-
-  return user;
-};
 
 const checkPassword = async (password, passwordEncrypted) => {
   const validPass = await compareWithEncrypted(password, passwordEncrypted);
@@ -57,7 +46,7 @@ export const createUserWithCreditCard = async (userAndCreditCardData) => {
   };
 }
 
-export const createUser = async (registerData) => {
+const createUser = async (registerData) => {
   const hashedPassword = await encryptPhrase(registerData.password);
 
   if (await getUserByCPF(registerData.cpf)) throw cpfAlreadyExistError;
@@ -74,22 +63,3 @@ export const getAllPersons = () => UserModel.findAll({
     type: 'PERSON'
   }
 });
-
-export const update = async (id, registerData) => {
-  // TODO do all promises in parallel
-  const userIfCPFExist = await getUserByCPF(registerData.cpf);
-  if (userIfCPFExist && userIfCPFExist.getDataValue('id') !== parseInt(id, 10)) throw cpfAlreadyExistError;
-
-  const hashedPassword = await encryptPhrase(registerData.password);
-
-  const user = await getUserById(id);
-
-  return user.update({
-    ...registerData,
-    password: hashedPassword,
-  });
-};
-
-export const getJWTToken = (
-  refreshTokenKey,
-) => generateJWTToken(refreshTokenKey);
