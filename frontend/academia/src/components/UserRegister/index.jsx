@@ -4,7 +4,6 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Controller } from "react-hook-form";
-import MenuItem from "@mui/material/MenuItem";
 import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -19,11 +18,6 @@ import "./style.css";
 
 function User() {
   const [showPassword, setShowPassword] = useState(false);
-  const [flag, setFlag] = useState("");
-
-  const handleChangeFlag = (event) => {
-    setFlag(event.target.value);
-  };
 
   return (
     <div ClassName="main_user">
