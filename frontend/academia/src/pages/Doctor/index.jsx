@@ -87,7 +87,6 @@ export default function Doctor() {
           </div>
         </form>
       </FormProvider>
-      <div></div>
     </section>
   );
 }
