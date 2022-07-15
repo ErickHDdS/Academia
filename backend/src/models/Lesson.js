@@ -10,7 +10,7 @@ class Lesson extends Model {
 
 Lesson.init({
   vacancies: DataTypes.INTEGER,
-  modality_id: DataTypes.INTEGER,
+  modalities_id: DataTypes.INTEGER,
   horary_id: DataTypes.INTEGER
 }, {
   sequelize: connection
