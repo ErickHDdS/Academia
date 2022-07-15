@@ -14,16 +14,18 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import { login } from "../../services/user";
 
 import "./style.css";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [user, setUser] = useState("");
 
-  const { control } = useForm({
+  const { handleSubmit, control } = useForm({
     defaultValues: {
-      CPF: "",
-      Password: "",
+      cpf: "",
+      password: "",
     },
   });
 
@@ -33,11 +35,15 @@ export default function Login() {
     setTypeUser(event.target.value);
   };
 
-  return (
-    <Box sx={{ "& > :not(style)": { m: 1 } }} className="main-login">
-      <h1 className="login-title">Login</h1>
+  const submitLogin = (data) => {
+    login(data, setUser);
+  };
 
-      <form>
+  return (
+    <form onSubmit={handleSubmit(submitLogin)}>
+      <Box sx={{ "& > :not(style)": { m: 1 } }} className="main-login">
+        <h1 className="login-title">Login</h1>
+
         <Box sx={{ minWidth: 150 }}>
           <FormControl fullWidth>
             <InputLabel>Usuário</InputLabel>
@@ -52,7 +58,7 @@ export default function Login() {
         <Box className="boxLogin">
           <AccountCircle sx={{ color: "action.active", mr: 1, my: 0.5 }} />
           <Controller
-            name="login"
+            name="cpf"
             control={control}
             render={({ field }) => (
               <TextField {...field} label="Login" variant="standard" />
@@ -63,7 +69,7 @@ export default function Login() {
         <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
           <InputLabel htmlFor="standard-adornment-password">Senha</InputLabel>
           <Controller
-            name="Password"
+            name="password"
             control={control}
             render={({ field }) => (
               <Input
@@ -87,7 +93,7 @@ export default function Login() {
         <Button variant="contained" endIcon={<SendIcon />} type="submit">
           Entrar
         </Button>
-      </form>
-    </Box>
+      </Box>
+    </form>
   );
 }

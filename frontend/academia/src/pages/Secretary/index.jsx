@@ -22,7 +22,7 @@ export default function Secretary() {
 
   const methods = useForm({
     defaultValues: {
-      Birthday: new Date(),
+      birthDate: new Date("1900-01-01T01:00:00"),
     },
   });
 
