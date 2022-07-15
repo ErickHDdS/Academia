@@ -16,15 +16,11 @@ export const getAll = async () => {
       const lessons = await getSampleLessonsFromModalityId(modalityId);
     
       const plans = await getSamplePlansFromModalityId(modalityId);
-
-      console.log({name: modality.getDataValue('name')})
   
       modalitiesWithAssociatedObjects[modality.getDataValue('name')] = {
         lessons,
         plans
       }
-
-      if(modalityId === 1) console.log({plans, modalitiesWithAssociatedObjects});
     })
   );
 
