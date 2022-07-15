@@ -1,4 +1,4 @@
-import axiosInstance from "../config/api.js";
+import axiosClient from "./axios.js";
 
 const GetUserCPF = ({
   cpf,
@@ -9,8 +9,8 @@ const GetUserCPF = ({
   setLoadng,
 }) => {
   const custonFetch = () => {
-    axiosInstance
-      .get(`/api/user/${cpf}/`)
+    axiosClient
+      .post(`/api/user/${cpf}/`)
       .then((res) => {
         if (res.data.message) {
           setNotFound(true);
