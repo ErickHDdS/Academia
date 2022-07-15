@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import BadgeIcon from "@mui/icons-material/Badge";
 import PhysicalExam from "../../components/PhysicalExam";
 import GetUser from "../../components/GetUser";
+import GetUserCPF from "../../components/GetUserCPF";
 
 import "./style.css";
 
@@ -21,7 +22,7 @@ export default function Doctor() {
     <section className="doctor-main">
       <h2 className="doctor-title">Exame Médico</h2>
       <div>
-        <GetUser />
+        <GetUserCPF />
       </div>
 
       <div>
