@@ -1,6 +1,6 @@
 import ExamModel from '../models/Exam.js';
 
-const findExamByUserId = (userId) => ExamModel.findOne({ where: { userId }});
+export const findExamByUserId = (userId) => ExamModel.findOne({ where: { userId }});
 
 export const registerOrUpdateExam = async (examData) => {
   const { weight, height, userId } = examData;
