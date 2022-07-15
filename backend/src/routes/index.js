@@ -1,9 +1,11 @@
 import express from 'express';
 import userRoutes from './user.routes.js';
+import imcRoutes from './imc.routes.js';
 
 const router = express.Router();
 
 router.use('/user', userRoutes);
+router.use('/imc', imcRoutes);
 
 router.get('*', (req, res) => res.sendStatus(404));
 
