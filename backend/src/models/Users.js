@@ -27,9 +27,9 @@ User.init(
     },
     type: {
       type: DataTypes.ENUM,
-      values: ['ADMIN', 'NORMAL'],
+      values: ['SECRETARY', 'PROFESSOR', 'DOCTOR', 'PERSON'],
       allowNull: false,
-      defaultValue: 'NORMAL',
+      defaultValue: 'PERSON',
     },
   },
   { sequelize: connection },
