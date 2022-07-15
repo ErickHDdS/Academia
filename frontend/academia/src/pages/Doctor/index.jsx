@@ -33,9 +33,10 @@ export default function Doctor() {
     data.height = parseFloat(data.height);
     data.fatPercentage = parseFloat(data.fatPercentage);
     data.massPercentage = parseFloat(data.massPercentage);
-
-    // TO DO: PEGAR O ID DO USUARIO ESCOLHIDO
-    let submitExamSubmit = await registerExam(data, 1);
+    let submitExamSubmit = await registerExam(
+      data,
+      localStorage.getItem("searchId")
+    );
     setImc(submitExamSubmit.imc);
   };
 
@@ -44,6 +45,7 @@ export default function Doctor() {
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(submitExam)}>
           <h2 className="doctor-title">Exame Médico</h2>
+
           <div>
             <GetUserCPF />
           </div>

@@ -30,7 +30,7 @@ const GetUserCPF = () => {
   };
 
   const searchSuccess = (state) => {
-    localStorage.setItem({ searchID: user.id });
+    window.localStorage.setItem("searchId", user.id);
     setSuccess(state);
     setNotFound(!state);
   };
