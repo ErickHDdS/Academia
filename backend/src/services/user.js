@@ -5,6 +5,7 @@ import { encryptPhrase, compareWithEncrypted } from './bcrypt.js';
 import { generateJwtToken } from './jwt.js';
 import { createCreditCard } from './creditCard.js';
 import { registerOrUpdateExam, findExamByUserId } from './exam.js';
+import { findTrainingByUserId } from './training.js';
 
 const cpfAlreadyExistError = new ErrorAPI(409, 'CPF already exists');
 
@@ -74,3 +75,7 @@ export const getAllPersons = () => UserModel.findAll({
 export const createExam = (userId, examData) => {
   return registerOrUpdateExam({ userId, ...examData });
 };
+
+export const getTraining = (userId) => {
+  return findTrainingByUserId(userId);
+}
