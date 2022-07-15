@@ -1,12 +1,8 @@
-import { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import BadgeIcon from "@mui/icons-material/Badge";
 import UserRegister from "../../components/UserRegister";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+
 import { useForm, FormProvider } from "react-hook-form";
 import Modalities from "../../components/Modalities";
 import * as SecretaryService from "../../services/secretary";
@@ -14,12 +10,6 @@ import * as SecretaryService from "../../services/secretary";
 import "./style.css";
 
 export default function Secretary() {
-  const [planUser, setPlanUser] = useState("Mensal");
-
-  const handleChange = (event) => {
-    setPlanUser(event.target.value);
-  };
-
   const methods = useForm({
     defaultValues: {
       birthDate: new Date("1900-01-01T01:00:00"),
@@ -54,23 +44,6 @@ export default function Secretary() {
             <UserRegister />
             <div className="user-registration">
               <Modalities />
-              <Box className="plan">
-                <h2>Plano</h2>
-                <Box sx={{ minWidth: 150 }}>
-                  <FormControl>
-                    <InputLabel>Plano</InputLabel>
-                    <Select
-                      value={planUser}
-                      label="Plano"
-                      onChange={handleChange}
-                    >
-                      <MenuItem value={"Mensal"}>Mensal</MenuItem>
-                      <MenuItem value={"Semestral"}>Semestral</MenuItem>
-                      <MenuItem value={"Anual"}>Anual</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Box>
-              </Box>
             </div>
           </div>
         </Box>

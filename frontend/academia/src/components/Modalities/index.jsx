@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Frequencia from "../Frequency";
+import Frequency from "../Frequency";
 
 import "./style.css";
 
@@ -12,27 +12,27 @@ export default function Secretary() {
         <h2>Modalidades</h2>
         <Box sx={{ minWidth: 150 }}>
           <FormControlLabel control={<Checkbox />} label="Musculação" />
-          <Frequencia />
+          <Frequency />
         </Box>
 
         <Box sx={{ minWidth: 150 }}>
           <FormControlLabel control={<Checkbox />} label="Natação" />
-          <Frequencia />
+          <Frequency />
         </Box>
 
         <Box sx={{ minWidth: 150 }}>
           <FormControlLabel control={<Checkbox />} label="Crossfit" />
-          <Frequencia />
+          <Frequency />
         </Box>
 
         <Box sx={{ minWidth: 150 }}>
           <FormControlLabel control={<Checkbox />} label="Spinning" />
-          <Frequencia />
+          <Frequency />
         </Box>
 
         <Box sx={{ minWidth: 150 }}>
           <FormControlLabel control={<Checkbox />} label="Ritmos" />
-          <Frequencia />
+          <Frequency />
         </Box>
       </Box>
     </form>
