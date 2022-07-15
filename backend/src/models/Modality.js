@@ -1,4 +1,4 @@
-import { Model, Sequelize } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 import { connection } from '../config/index.js';
 
 class Modality extends Model {}
