@@ -33,9 +33,7 @@ class User {
     const { cpf } = req.params;
     const user = await UserService.searchUserByCpf(cpf);
 
-    delete user.dataValues.password;
-
-    return res.status(200).json(user.dataValues);
+    return res.status(200).json(user);
   }
 
   static async createExam(req, res) {

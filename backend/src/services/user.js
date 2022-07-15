@@ -4,7 +4,7 @@ import { entityIfHeIsPresent } from './entity.js';
 import { encryptPhrase, compareWithEncrypted } from './bcrypt.js';
 import { generateJwtToken } from './jwt.js';
 import { createCreditCard } from './creditCard.js';
-import { registerOrUpdateExam } from './exam.js';
+import { registerOrUpdateExam, findExamByUserId } from './exam.js';
 
 const cpfAlreadyExistError = new ErrorAPI(409, 'CPF already exists');
 
@@ -13,9 +13,15 @@ export const userIfIsFound = (user) => entityIfHeIsPresent(user, 'User not found
 const getUserByCPF = (cpf) => UserModel.findOne({ where: { cpf } });
 
 export const searchUserByCpf = async (cpf) => {
-  const user = await getUserByCPF(cpf);
+  const user = userIfIsFound(await getUserByCPF(cpf)).dataValues;
+  const exam = await findExamByUserId(user.id);
 
-  return userIfIsFound(user);
+  delete user.password;
+
+  return {
+    ...user,
+    ableInExam: exam !== null ? exam.getDataValue('able'): false
+  };
 };
 
 
