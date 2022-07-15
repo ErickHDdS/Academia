@@ -1,9 +1,9 @@
 import { Model, DataTypes } from 'sequelize';
 import { connection } from '../config/index.js';
 
-class IMC extends Model {}
+class Imc extends Model {}
 
-IMC.init({
+Imc.init({
   value: {
     type: DataTypes.REAL,
     allowNull: false
@@ -13,7 +13,8 @@ IMC.init({
     allowNull: false
   }
 }, {
-  sequelize: connection
+  sequelize: connection,
+
 });
 
-export default IMC;
+export default Imc;

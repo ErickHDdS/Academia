@@ -11,4 +11,5 @@ export default {
     timestamps: true,
     underscored: true,
   },
+  seederStorage: "sequelize"
 };

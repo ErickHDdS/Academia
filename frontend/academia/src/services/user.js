@@ -1,10 +1,8 @@
 import api from "../config/api";
+import jwt_decode from "jwt-decode";
 
 export const login = async (body) => {
   const { data } = await api.post("/user/login", body);
-  console.log(data);
-};
 
-// export const logout = (setUser) => {
-//   setUser(null);
-// };
+  return jwt_decode(data.jwt);
+};

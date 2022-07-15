@@ -1,5 +1,5 @@
 import { useForm, Controller } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
@@ -12,8 +12,6 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
 import { login } from "../../services/user";
 
 import "./style.css";
@@ -29,31 +27,31 @@ export default function Login() {
     },
   });
 
-  const [typeUser, setTypeUser] = useState("Aluno");
+  const submitLogin = async (data) => {
+    setUser(await login(data));
 
-  const handleChange = (event) => {
-    setTypeUser(event.target.value);
-  };
-
-  const submitLogin = (data) => {
-    login(data, setUser);
+    switch (user.userType) {
+      case "PERSON":
+        window.location.href = "/user";
+        break;
+      case "SECRETARY":
+        window.location.href = "/secretary";
+        break;
+      case "PROFESSOR":
+        window.location.href = "/teacher";
+        break;
+      case "DOCTOR":
+        window.location.href = "/doctor";
+        break;
+      default:
+        console.log("unidentified user");
+    }
   };
 
   return (
     <form onSubmit={handleSubmit(submitLogin)}>
       <Box sx={{ "& > :not(style)": { m: 1 } }} className="main-login">
         <h1 className="login-title">Login</h1>
-
-        <Box sx={{ minWidth: 150 }}>
-          <FormControl fullWidth>
-            <InputLabel>Usuário</InputLabel>
-            <Select value={typeUser} label="Usuário" onChange={handleChange}>
-              <MenuItem value={"Aluno"}>Aluno</MenuItem>
-              <MenuItem value={"Secretária"}>Secretária</MenuItem>
-              <MenuItem value={"Professor"}>Professor</MenuItem>
-            </Select>
-          </FormControl>
-        </Box>
 
         <Box className="boxLogin">
           <AccountCircle sx={{ color: "action.active", mr: 1, my: 0.5 }} />

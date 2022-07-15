@@ -1,6 +1,6 @@
 import axiosClient from "./axios.js";
 
-const getUserCPF = ({
+const GetUserCPF = ({
   cpf,
   setError,
   setSuccess,
@@ -26,6 +26,7 @@ const getUserCPF = ({
         setLoadng(false);
       });
   };
+  custonFetch();
 };
 
-export default getUserCPF;
+export default GetUserCPF;

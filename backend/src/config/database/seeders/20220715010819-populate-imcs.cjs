@@ -6,7 +6,7 @@ function imcRow(value, situation){
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-     return queryInterface.bulkInsert('IMCs', [
+     return queryInterface.bulkInsert('imcs', [
       imcRow(14.9, "Extremamente abaixo do peso"),
       imcRow(15.9, "Gravemente abaixo do peso"),
       imcRow(18.5, "Abaixo do peso ideal"),
@@ -19,6 +19,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('IMCs');
+    return queryInterface.bulkDelete('imcs');
   }
 };

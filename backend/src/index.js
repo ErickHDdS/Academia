@@ -1,7 +1,8 @@
 import express, {
-  json,
+  json
 } from 'express';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import { connection } from './config/index.js';
 import routes from './routes/index.js';
 import errorHandler from './error/errorHandler.js';
@@ -9,7 +10,13 @@ import errorHandler from './error/errorHandler.js';
 const server = express();
 
 server.use(json());
-server.use(cors());
+server.use(
+  cors({
+    origin: process.env.ORIGIN,
+    credentials: true,
+  })
+);
+server.use(cookieParser());
 
 server.use('/api', routes);
 
