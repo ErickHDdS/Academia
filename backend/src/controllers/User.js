@@ -37,6 +37,13 @@ class User {
 
     return res.status(200).json(user.dataValues);
   }
+
+  static async createExam(req, res) {
+    const { userId } = req.params;
+    const exam = await UserService.createExam(userId, req.body);
+
+    return res.status(201).json(exam);
+  }
 }
 
 export default User;
