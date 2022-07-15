@@ -9,8 +9,8 @@ router.post('/', verifyUserLogged, verifyIsSecretary, routerAdapter(UserControll
 router.post('/login', routerAdapter(UserController.login));
 router.post('/logout', verifyUserLogged, routerAdapter(UserController.logout));
 router.get('/person', verifyUserLogged, verifyIsntPerson, routerAdapter(UserController.findAllPerson));
+router.get('/training', verifyUserLogged, routerAdapter(UserController.getTraining));
 router.get('/:cpf', verifyUserLogged, verifyIsntPerson, routerAdapter(UserController.findByCpf));
 router.post('/exam/:personId', verifyUserLogged, verifyIsDoctor, routerAdapter(UserController.createExam));
-router.get('/training', verifyUserLogged, routerAdapter(UserController.getTraining));
 
 export default router;

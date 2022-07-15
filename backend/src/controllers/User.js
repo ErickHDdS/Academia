@@ -45,7 +45,7 @@ class User {
 
   static async getTraining(req, res) {
     const { userId } = req.params;
-    const exam = await UserService.createExam(userId, req.body);
+    const exam = await UserService.getTraining(userId);
 
     return res.status(201).json(exam);
   }
