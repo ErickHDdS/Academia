@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
+// import Paper from "@mui/material/Paper";
 import { Box } from "@mui/material";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
@@ -25,15 +25,15 @@ function Home() {
 
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = range;
+  // const maxSteps = range;
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
+  // const handleNext = () => {
+  //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  // };
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+  // const handleBack = () => {
+  //   setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  // };
 
   const handleStepChange = (step) => {
     setActiveStep(step);
