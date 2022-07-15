@@ -6,3 +6,7 @@ export const login = async (body) => {
 
   return jwt_decode(data.jwt);
 };
+
+export const logout = async () => {
+  await api.post("/user/logout");
+};

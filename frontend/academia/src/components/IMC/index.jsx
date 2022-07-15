@@ -34,17 +34,12 @@ export default function IMC() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map(
-              (row) => (
-                console.log(row),
-                (
-                  <TableRow className="table-row" key={row.value}>
-                    <TableCell align="center">Abaixo de {row.value}</TableCell>
-                    <TableCell align="center">{row.situation}</TableCell>
-                  </TableRow>
-                )
-              )
-            )}
+            {rows.map((row) => (
+              <TableRow className="table-row" key={row.value}>
+                <TableCell align="center">Abaixo de {row.value}</TableCell>
+                <TableCell align="center">{row.situation}</TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
