@@ -1,4 +1,4 @@
-# Backend LES1-TP2
+# Backend LES1-TP2-Academia
 
 ## Installation
 
