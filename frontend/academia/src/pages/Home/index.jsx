@@ -41,7 +41,7 @@ function Home() {
 
   const images = loadImages();
 
-  console.log(images);
+  // console.log(images);
 
   return (
     <Box sx={{ display: "flex" }} className="home-main">

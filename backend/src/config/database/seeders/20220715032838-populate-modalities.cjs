@@ -10,7 +10,6 @@ module.exports = {
       modalityRow("Musculação"),
       modalityRow("Natação"),
       modalityRow("Crossfit"),
-      modalityRow("Musculação"),
       modalityRow("Ritmos"),
       modalityRow("Spinning"),
     ]);

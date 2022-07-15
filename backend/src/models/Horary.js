@@ -9,7 +9,8 @@ Horary.init({
     allowNull: false
   }
 }, {
-  sequelize: connection
+  sequelize: connection,
+  tableName: 'horary'
 });
 
 export default Horary;
