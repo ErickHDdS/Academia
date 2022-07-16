@@ -19,6 +19,7 @@ export default function Teacher() {
   const submitExam = async (data) => {
     data.repetitions = parseInt(data.repetitions);
     registerTraining(data, localStorage.getItem("searchId"));
+    window.location.href = "/teacher";
   };
 
   return (

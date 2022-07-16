@@ -46,7 +46,6 @@ export default function Frequency({ modalities }) {
         planId: planUser.id,
         lessonId: lesson.id,
       });
-      alert("deu nice");
     } catch (error) {}
   };
 

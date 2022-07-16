@@ -38,6 +38,7 @@ export default function Doctor() {
       localStorage.getItem("searchId")
     );
     setImc(submitExamSubmit.imc);
+    window.location.href = "/doctor";
   };
 
   return (

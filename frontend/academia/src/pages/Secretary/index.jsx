@@ -20,28 +20,6 @@ export default function Secretary() {
     flagCard: "",
     namePrintCard: "",
   });
-  // const [open, setOpen] = React.useState(false);
-
-  // const methods = useForm({
-  //   defaultValues: {
-  //     birthDate: new Date("1900-01-01T01:00:00"),
-  //   },
-  // });
-
-  // const onSubmit = async (forms) => {
-  //   console.log(forms);
-  //   const loginReqBody = {
-  //     ...forms,
-  //   };
-
-  //   // const res = await SecretaryService.register(loginReqBody);
-
-  //   if (res.status === 200) alert("Usuário registrado com sucesso");
-  // };
-
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
 
   const handleClick = (e) => {
     setSelected(e.target.innerText);
@@ -159,23 +137,6 @@ export default function Secretary() {
         return (
           <Grid container style={{ justifyContent: "center" }}>
             <Modalities />
-            {/* <Box className="plan">
-              <h2>Plano</h2>
-              <Box sx={{ minWidth: 150 }}>
-                <FormControl>
-                  <InputLabel>Plano</InputLabel>
-                  <Select
-                    value={planUser}
-                    label="Plano"
-                    onChange={handleChange}
-                  >
-                    <MenuItem value={"Mensal"}>Mensal</MenuItem>
-                    <MenuItem value={"Semestral"}>Semestral</MenuItem>
-                    <MenuItem value={"Anual"}>Anual</MenuItem>
-                  </Select>
-                </FormControl>
-              </Box>
-            </Box> */}
           </Grid>
         );
 
@@ -183,14 +144,6 @@ export default function Secretary() {
         return null;
     }
   };
-
-  // const handeSubmit = () => {
-  //   try {
-  //     SecretaryService.register(input);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   useEffect(() => {
     console.log(input);
@@ -202,8 +155,7 @@ export default function Secretary() {
       direction="column"
       style={{
         background: "#f5f5f5",
-        // display: "flex",
-        // justifyContent: "center",
+
         minHeight: 730,
       }}
     >
@@ -211,7 +163,6 @@ export default function Secretary() {
         <Button
           sx={{ maxWidth: 250 }}
           variant="contained"
-          // endIcon={<BadgeIcon />}
           onClick={handleClick}
           type="submit"
         >
@@ -228,17 +179,7 @@ export default function Secretary() {
           Matricular Usuarios
         </Button>
       </Grid>
-      <Grid
-      // style={{
-      //   display: "flex",
-      //   alignItems: "center",
-      //   // justifyContent: "space-between",
-      // }}
-      >
-        {selectRender()}
-        {/* <UserRegister /> */}
-      </Grid>
-
+      <Grid>{selectRender()}</Grid>
     </Grid>
   );
 }

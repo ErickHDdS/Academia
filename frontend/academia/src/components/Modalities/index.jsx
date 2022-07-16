@@ -40,16 +40,10 @@ export default function Modalities() {
 
   return (
     loading && (
-      <Grid container style={{ justifyContent: "center" }}>
+      <Grid style={{ justifyContent: "center" }}>
         <GetUserCPF />
 
-        <Box
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+        <Box>
           <h2>Modalidades</h2>
 
           <Box sx={{ minWidth: 150 }}>

@@ -5,38 +5,49 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import CircularProgress from "@mui/material/CircularProgress";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import "./style.css";
 
 const GetUserCPF = () => {
   const [userCPF, setCPF] = useState("");
-  const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [notFound, setNotFound] = useState(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const cpfContent = (event) => {
     setCPF(event.target.value);
   };
 
-  const seachError = (state) => {
-    setError(state);
-    setSuccess(!state);
-    setNotFound(!state);
-  };
-
   const searchSuccess = (state) => {
-    setError(!state);
     setSuccess(state);
     setNotFound(!state);
   };
 
   const searchNotFound = (state) => {
-    setError(!state);
+    setOpen(notFound);
     setSuccess(!state);
     setNotFound(state);
+    setUser(false);
   };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  window.localStorage.setItem("searchId", user.id);
 
   return (
     <div className="search">
@@ -70,20 +81,18 @@ const GetUserCPF = () => {
         {search && (
           <GetCPF
             cpf={userCPF}
-            setError={seachError}
             setSuccess={searchSuccess}
             setNotFound={searchNotFound}
             setLoadng={setLoading}
             setUser={setUser}
+            search={search}
+            setSearch={setSearch}
           />
-        )
-        }
+        )}
         <Grid item>
           <Box
             component="form"
-            sx={{
-              "& > :not(style)": { m: 1, width: "25ch" },
-            }}
+            sx={{ display: "flex" }}
             noValidate
             autoComplete="off"
           >
@@ -93,12 +102,21 @@ const GetUserCPF = () => {
               variant="filled"
               onChange={cpfContent}
             />
+            <Box sx={{ display: "flex" }}>
+              {loading && <CircularProgress />}
+            </Box>
           </Box>
         </Grid>
         <Grid item>
-          <Button variant="contained" disableElevation onClick={() => search()}>
-            Buscar
-          </Button>
+          <Box sx={{ display: "flex" }}>
+            <Button
+              variant="contained"
+              disableElevation
+              onClick={() => setSearch(true)}
+            >
+              Buscar
+            </Button>
+          </Box>
         </Grid>
       </Grid>
       {user && (
