@@ -1,4 +1,4 @@
-# Pizzaria Pizzada
+# Academia MFAL
 
 ## About project
 
