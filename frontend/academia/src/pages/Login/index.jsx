@@ -29,10 +29,12 @@ export default function Login() {
 
   const submitLogin = async (data) => {
     let userLogin = await login(data);
+
     setUser(userLogin);
 
     switch (userLogin.userType) {
       case "PERSON":
+        window.localStorage.setItem("userId", userLogin.userId);
         window.location.href = "/user";
         break;
       case "SECRETARY":

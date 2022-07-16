@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import Button from "@mui/material/Button";
 import BadgeIcon from "@mui/icons-material/Badge";
@@ -12,7 +11,8 @@ import "./style.css";
 export default function Teacher() {
   const methods = useForm({
     defaultValues: {
-      able: "",
+      name: "",
+      repetitions: "",
     },
   });
 
