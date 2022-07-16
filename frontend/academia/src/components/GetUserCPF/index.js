@@ -6,6 +6,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 
+import "./style.css";
+
 const GetUserCPF = () => {
   const [userCPF, setCPF] = useState("");
   const [error, setError] = useState(false);
@@ -37,9 +39,35 @@ const GetUserCPF = () => {
   };
 
   return (
-    <>
-      <Grid container spacing={2}>
-        {
+    <div className="search">
+      <Dialog
+        fullScreen={fullScreen}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="responsive-dialog-title"
+      >
+        <DialogTitle id="responsive-dialog-title">
+          {"Usuário não encontrado"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Não foi possível localizar o usuário com CPF {userCPF}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} autoFocus>
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Grid
+        container
+        spacing={0.5}
+        justifyContent="center"
+        className="search-form"
+      >
+        {search && (
           <GetCPF
             cpf={userCPF}
             setError={seachError}
@@ -48,6 +76,7 @@ const GetUserCPF = () => {
             setLoadng={setLoading}
             setUser={setUser}
           />
+        )
         }
         <Grid item>
           <Box
@@ -72,7 +101,31 @@ const GetUserCPF = () => {
           </Button>
         </Grid>
       </Grid>
-    </>
+      {user && (
+        <Grid container spacing={0.5} justifyContent="center">
+          <Grid item>
+            {
+              <TextField
+                id="standard-basic"
+                label="ID"
+                variant="standard"
+                value={user.id}
+              />
+            }
+          </Grid>
+          <Grid item>
+            {
+              <TextField
+                id="standard-basic"
+                label="Name"
+                variant="standard"
+                value={user.name}
+              />
+            }
+          </Grid>
+        </Grid>
+      )}
+    </div>
   );
 };
 
