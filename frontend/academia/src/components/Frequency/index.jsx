@@ -39,13 +39,16 @@ export default function Frequency({ modalities }) {
     setLesson(findedLesson);
   };
 
-  // const handleSubmmit = () => {
-  //   SecretaryService.submmitMatricula({
-  //     userId: 
-  //     planId: planUser.id,
-  //     lessonId: lesson.id
-  //   })
-  // }
+  const handleSubmmit = () => {
+    try {
+      SecretaryService.submmitMatricula({
+        userId: localStorage.getItem("searchId"),
+        planId: planUser.id,
+        lessonId: lesson.id,
+      });
+      alert("deu nice");
+    } catch (error) {}
+  };
 
   useEffect(() => {
     console.log(planUser);
@@ -54,7 +57,7 @@ export default function Frequency({ modalities }) {
 
   return (
     <form className="frequencyRegister-main">
-      <Grid container spacing={3} >
+      <Grid container spacing={3}>
         <Grid item sx={{ width: 150 }}>
           <FormControl fullWidth>
             <InputLabel>Plano</InputLabel>
@@ -115,7 +118,7 @@ export default function Frequency({ modalities }) {
           />
         </Grid>
 
-        <Grid item >
+        <Grid item>
           <TextField
             name="vacancies"
             label="Vagas Disponíveis"
@@ -131,7 +134,7 @@ export default function Frequency({ modalities }) {
           sx={{ maxWidth: 250 }}
           variant="contained"
           // endIcon={<BadgeIcon />}
-          // onClick={handleSubmmit}
+          onClick={handleSubmmit}
           type="submit"
         >
           Matricular

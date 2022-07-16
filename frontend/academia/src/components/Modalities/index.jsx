@@ -38,13 +38,18 @@ export default function Modalities() {
     console.log(modalities);
   });
 
-
   return (
     loading && (
-      <Grid container style={{justifyContent: 'center'}}>
+      <Grid container style={{ justifyContent: "center" }}>
         <GetUserCPF />
 
-        <Box>
+        <Box
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <h2>Modalidades</h2>
 
           <Box sx={{ minWidth: 150 }}>
@@ -103,8 +108,6 @@ export default function Modalities() {
           />
           <Frequencia modalities={modalities.Musculação} />
         </Box>
-
-
       </Grid>
     )
   );
