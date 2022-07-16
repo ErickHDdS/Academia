@@ -1,9 +1,7 @@
-import { useEffect } from "react";
-import GetUserCPF from "../../components/GetUserCPF";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FormControl from "@mui/material/FormControl";
 import { Input, FormHelperText } from "@mui/material";
-import { getWorkouts } from "../../services/user";
+import { getWorkouts, getExam } from "../../services/user";
 
 import "./style.css";
 
@@ -23,14 +21,13 @@ export default function User() {
     }
 
     async function handleGetExam() {
-      // const data = await getExam(window.localStorage.getItem("userId"));
-      // console.log(data);
-      // setWeight(data.weight);
-      // setHeight(data.height);
-      // setPressure(data.pressure);
-      // setFatPercentage(data.fatPercentage);
-      // setMassPercentage(data.massPercentage);
-      // setImc(data.imc);
+      const data = await getExam();
+      setWeight(data.weight);
+      setHeight(data.height);
+      setPressure(data.pressure);
+      setFatPercentage(data.fatPercentage);
+      setMassPercentage(data.massPercentage);
+      setImc(data.imc);
     }
     handleGetWorkout();
     handleGetExam();

@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
+import { useState } from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -11,8 +10,6 @@ import Select from "@mui/material/Select";
 import "./style.css";
 
 export default function Frequency({ modalities }) {
-  const [frequencySchedulesUser, setFrequencySchedulesUser] = useState("");
-  const [frequencyDaysUser, setFrequencyDaysUser] = useState("");
   const [planUser, setPlanUser] = useState({
     name: "",
     frequency: "",
