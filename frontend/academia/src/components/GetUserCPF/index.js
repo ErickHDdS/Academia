@@ -14,6 +14,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
+import "./style.css";
+
 const GetUserCPF = () => {
   const [userCPF, setCPF] = useState("");
   const [success, setSuccess] = useState(false);
@@ -47,7 +49,7 @@ const GetUserCPF = () => {
   };
 
   return (
-    <>
+    <div className="search">
       <Dialog
         fullScreen={fullScreen}
         open={open}
@@ -69,7 +71,12 @@ const GetUserCPF = () => {
         </DialogActions>
       </Dialog>
 
-      <Grid container spacing={0.5} justifyContent="center">
+      <Grid
+        container
+        spacing={0.5}
+        justifyContent="center"
+        className="search-form"
+      >
         {search && (
           <GetCPF
             cpf={userCPF}
@@ -135,7 +142,7 @@ const GetUserCPF = () => {
           </Grid>
         </Grid>
       )}
-    </>
+    </div>
   );
 };
 
