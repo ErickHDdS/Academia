@@ -1,13 +1,9 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import BadgeIcon from "@mui/icons-material/Badge";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 
-import UserRegister from "../../components/UserRegister";
-
-import { useForm, FormProvider } from "react-hook-form";
 import Modalities from "../../components/Modalities";
 import * as SecretaryService from "../../services/secretary";
 
@@ -15,7 +11,6 @@ import "./style.css";
 import { useEffect, useState } from "react";
 
 export default function Secretary() {
-  const [planUser, setPlanUser] = useState("Mensal");
   const [selected, setSelected] = useState("");
   const [input, setInput] = useState({
     name: "",
@@ -228,7 +223,13 @@ export default function Secretary() {
           Matricular Usuarios
         </Button>
       </Grid>
-      <Grid>
+      <Grid
+        // style={{
+        //   display: "flex",
+        //   alignItems: "center",
+        //   // justifyContent: "space-between",
+        // }}
+      >
         {selectRender()}
         {/* <UserRegister /> */}
       </Grid>
