@@ -45,9 +45,16 @@ class User {
 
   static async getTraining(req, res) {
     const { userId } = req.params;
-    const exam = await UserService.getTraining(userId);
+    const training = await UserService.getTraining(userId);
 
-    return res.status(201).json(exam);
+    return res.status(201).json(training);
+  }
+
+  static async getExam(req, res) {
+    const { userId } = req.params;
+    const exam = await UserService.getExam(userId);
+
+    return res.status(200).json(exam);
   }
 }
 

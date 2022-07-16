@@ -79,3 +79,7 @@ export const createExam = (userId, examData) => {
 export const getTraining = (userId) => {
   return findTrainingByUserId(userId);
 }
+
+export const getExam = (userId) => {
+  return findExamByUserId(userId);
+}
