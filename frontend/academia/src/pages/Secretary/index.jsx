@@ -3,10 +3,9 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
-
+import Snackbar from "@mui/material/Snackbar";
 import Modalities from "../../components/Modalities";
 import * as SecretaryService from "../../services/secretary";
-
 import "./style.css";
 import { useEffect, useState } from "react";
 
@@ -21,6 +20,7 @@ export default function Secretary() {
     flagCard: "",
     namePrintCard: "",
   });
+  // const [open, setOpen] = React.useState(false);
 
   // const methods = useForm({
   //   defaultValues: {
@@ -39,6 +39,10 @@ export default function Secretary() {
   //   if (res.status === 200) alert("Usuário registrado com sucesso");
   // };
 
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
+
   const handleClick = (e) => {
     setSelected(e.target.innerText);
   };
@@ -53,6 +57,7 @@ export default function Secretary() {
   const handleSubmmit = () => {
     try {
       SecretaryService.register(input);
+      // setOpen(true);
     } catch (error) {
       console.log(error);
     }
@@ -224,15 +229,16 @@ export default function Secretary() {
         </Button>
       </Grid>
       <Grid
-        // style={{
-        //   display: "flex",
-        //   alignItems: "center",
-        //   // justifyContent: "space-between",
-        // }}
+      // style={{
+      //   display: "flex",
+      //   alignItems: "center",
+      //   // justifyContent: "space-between",
+      // }}
       >
         {selectRender()}
         {/* <UserRegister /> */}
       </Grid>
+
     </Grid>
   );
 }

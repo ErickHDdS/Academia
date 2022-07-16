@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import * as SecretaryService from "../../services/secretary";
 
 import Select from "@mui/material/Select";
 
@@ -11,11 +13,12 @@ import "./style.css";
 
 export default function Frequency({ modalities }) {
   const [planUser, setPlanUser] = useState({
-    name: "",
+    id: "",
     frequency: "",
     value: "",
   });
   const [lesson, setLesson] = useState({
+    id: "",
     horary: "",
     vacancies: "",
   });
@@ -36,9 +39,22 @@ export default function Frequency({ modalities }) {
     setLesson(findedLesson);
   };
 
+  // const handleSubmmit = () => {
+  //   SecretaryService.submmitMatricula({
+  //     userId: 
+  //     planId: planUser.id,
+  //     lessonId: lesson.id
+  //   })
+  // }
+
+  useEffect(() => {
+    console.log(planUser);
+    console.log(lesson);
+  });
+
   return (
     <form className="frequencyRegister-main">
-      <Grid container spacing={3} style={{ justifyContent: "space-between" }}>
+      <Grid container spacing={3} >
         <Grid item sx={{ width: 150 }}>
           <FormControl fullWidth>
             <InputLabel>Plano</InputLabel>
@@ -73,7 +89,7 @@ export default function Frequency({ modalities }) {
           </FormControl>
         </Grid>
 
-        <Grid item sx={{ minWidth: 150 }}>
+        <Grid item sx={{ maxWidth: 100 }}>
           <FormControl>
             <TextField
               name="value"
@@ -87,7 +103,7 @@ export default function Frequency({ modalities }) {
           </FormControl>
         </Grid>
 
-        <Grid item>
+        <Grid item sx={{ maxWidth: 120 }}>
           <TextField
             name="frequency"
             label="Dias na Semana"
@@ -99,7 +115,7 @@ export default function Frequency({ modalities }) {
           />
         </Grid>
 
-        <Grid item>
+        <Grid item >
           <TextField
             name="vacancies"
             label="Vagas Disponíveis"
@@ -110,6 +126,16 @@ export default function Frequency({ modalities }) {
             value={lesson.vacancies}
           />
         </Grid>
+
+        <Button
+          sx={{ maxWidth: 250 }}
+          variant="contained"
+          // endIcon={<BadgeIcon />}
+          // onClick={handleSubmmit}
+          type="submit"
+        >
+          Matricular
+        </Button>
       </Grid>
     </form>
   );

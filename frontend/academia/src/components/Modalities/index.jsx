@@ -7,6 +7,7 @@ import Grid from "@mui/material/Grid";
 import * as SecretaryService from "../../services/secretary";
 import "./style.css";
 import Button from "@mui/material/Button";
+import GetUserCPF from "../../components/GetUserCPF";
 
 export default function Modalities() {
   const [state, setState] = useState({
@@ -37,9 +38,12 @@ export default function Modalities() {
     console.log(modalities);
   });
 
+
   return (
     loading && (
       <Grid container style={{justifyContent: 'center'}}>
+        <GetUserCPF />
+
         <Box>
           <h2>Modalidades</h2>
 
@@ -100,15 +104,7 @@ export default function Modalities() {
           <Frequencia modalities={modalities.Musculação} />
         </Box>
 
-        <Button
-          sx={{ maxWidth: 250 }}
-          variant="contained"
-          // endIcon={<BadgeIcon />}
-          // onClick={handleSubmmit}
-          type="submit"
-        >
-          Enviar
-        </Button>
+
       </Grid>
     )
   );

@@ -9,3 +9,8 @@ export const getMatriculaInfos = async () => {
   const data = await api.get("/modalities");
   return data;
 };
+
+export const submmitMatricula = async (body) => {
+  api.post("/registration", body)
+}
+
