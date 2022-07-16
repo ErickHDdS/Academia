@@ -10,3 +10,8 @@ export const login = async (body) => {
 export const logout = async () => {
   await api.post("/user/logout");
 };
+
+export const getWorkouts = async () => {
+  let { data } = await api.get("/user/training");
+  return data;
+};
