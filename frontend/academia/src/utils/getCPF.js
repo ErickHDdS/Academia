@@ -1,16 +1,17 @@
-import axiosClient from "./axios.js";
+import axiosInstance from "../config/api";
 
 const GetUserCPF = ({
   cpf,
-  setError,
   setSuccess,
   setNotFound,
   setUser,
   setLoadng,
+  setSearch,
+  search,
 }) => {
   const custonFetch = () => {
-    axiosClient
-      .post(`/api/user/${cpf}/`)
+    axiosInstance
+      .get(`user/${cpf}/`)
       .then((res) => {
         if (res.data.message) {
           setNotFound(true);
@@ -20,13 +21,17 @@ const GetUserCPF = ({
         }
       })
       .catch((err) => {
-        setError(true);
+        setNotFound(true);
       })
       .finally(() => {
         setLoadng(false);
       });
   };
-  custonFetch();
+
+  if (search) {
+    setSearch(false);
+    custonFetch();
+  }
 };
 
 export default GetUserCPF;

@@ -1,5 +1,5 @@
 import { useForm, Controller } from "react-hook-form";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
@@ -28,9 +28,10 @@ export default function Login() {
   });
 
   const submitLogin = async (data) => {
-    setUser(await login(data));
+    let userLogin = await login(data);
+    setUser(userLogin);
 
-    switch (user.userType) {
+    switch (userLogin.userType) {
       case "PERSON":
         window.location.href = "/user";
         break;
