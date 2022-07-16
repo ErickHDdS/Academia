@@ -1,91 +1,119 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
+import TextField from "@mui/material/TextField";
+import Grid from "@mui/material/Grid";
+
 import Select from "@mui/material/Select";
 
 import "./style.css";
 
-export default function Frequency() {
+export default function Frequency({ modalities }) {
   const [frequencySchedulesUser, setFrequencySchedulesUser] = useState("");
   const [frequencyDaysUser, setFrequencyDaysUser] = useState("");
-  const [planUser, setPlanUser] = useState("Mensal");
+  const [planUser, setPlanUser] = useState({
+    name: "",
+    frequency: "",
+    value: "",
+  });
+  const [lesson, setLesson] = useState({
+    horary: "",
+    vacancies: "",
+  });
 
-  const handleChange = (event) => {
-    setPlanUser(event.target.value);
+  const handlePlanChange = (event) => {
+    let choosedPlan = event.target.value.toUpperCase();
+
+    const findedPlan = modalities.plans.find((obj) => obj.type === choosedPlan);
+    setPlanUser(findedPlan);
   };
 
-  const handleChangeSchedules = (event) => {
-    setFrequencySchedulesUser(event.target.value);
-  };
-
-  const handleChangeDays = (event) => {
-    setFrequencyDaysUser(event.target.value);
+  const handleLessonsChange = (event) => {
+    let choosedLesson = event.target.value;
+    console.log(choosedLesson);
+    const findedLesson = modalities.lessons.find(
+      (obj) => obj.horary === choosedLesson
+    );
+    setLesson(findedLesson);
   };
 
   return (
-    <form className="frequencyRegister-main" onSubmit={""}>
-      <Box className="schedules">
-        <FormControl sx={{ minWidth: 150 }}>
-          <InputLabel>Horário</InputLabel>
-          <Select
-            value={frequencySchedulesUser}
-            label="Horarios"
-            onChange={handleChangeSchedules}
-          >
-            <MenuItem value={"06:30"}>06:30</MenuItem>
+    <form className="frequencyRegister-main">
+      <Grid container spacing={3} style={{ justifyContent: "space-between" }}>
+        <Grid item sx={{ width: 150 }}>
+          <FormControl fullWidth>
+            <InputLabel>Plano</InputLabel>
+            <Select
+              value={planUser.type}
+              label="type"
+              onChange={handlePlanChange}
+            >
+              {modalities?.plans.map((plan) => (
+                <MenuItem key={plan.type} value={plan.type}>
+                  {plan.type}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
 
-            <MenuItem value={"07:00"}>07:00</MenuItem>
+        <Grid item className="schedules">
+          <FormControl sx={{ minWidth: 150 }}>
+            <InputLabel>Horário</InputLabel>
+            <Select
+              value={lesson.horary}
+              label="horary"
+              onChange={handleLessonsChange}
+            >
+              {modalities?.lessons.map((lesson) => (
+                <MenuItem key={lesson.horary} value={lesson.horary}>
+                  {lesson.horary}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
 
-            <MenuItem value={"08:00"}>08:00</MenuItem>
-            <MenuItem value={"08:30"}>08:30</MenuItem>
+        <Grid item sx={{ minWidth: 150 }}>
+          <FormControl>
+            <TextField
+              name="value"
+              label="Valor"
+              variant="standard"
+              disabled
+              // style={{ width: "35%" }}
+              // onChange={handleChange}
+              value={planUser.value}
+            />
+          </FormControl>
+        </Grid>
 
-            <MenuItem value={"09:00"}>09:00</MenuItem>
+        <Grid item>
+          <TextField
+            name="frequency"
+            label="Dias na Semana"
+            variant="standard"
+            disabled
+            // style={{ width: "35%" }}
+            // onChange={handleChange}
+            value={planUser.frequency}
+          />
+        </Grid>
 
-            <MenuItem value={"10:00"}>10:00</MenuItem>
-            <MenuItem value={"10:15"}>10:15</MenuItem>
-
-            <MenuItem value={"12:00"}>12:00</MenuItem>
-
-            <MenuItem value={"16:00"}>16:00</MenuItem>
-
-            <MenuItem value={"17:00"}>17:00</MenuItem>
-
-            <MenuItem value={"18:00"}>18:00</MenuItem>
-
-            <MenuItem value={"19:00"}>19:00</MenuItem>
-
-            <MenuItem value={"20:00"}>20:00</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
-
-      <Box>
-        <FormControl sx={{ minWidth: 300 }}>
-          <InputLabel>Quantidade de dias semanalmente</InputLabel>
-          <Select
-            value={frequencyDaysUser}
-            label="Quantidade de dias semanalmente"
-            onChange={handleChangeDays}
-          >
-            <MenuItem value={"2"}>2</MenuItem>
-            <MenuItem value={"3"}>3</MenuItem>
-            <MenuItem value={"7"}>7</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
-
-      <Box sx={{ minWidth: 150 }}>
-        <FormControl>
-          <InputLabel>Plano</InputLabel>
-          <Select value={planUser} label="Plano" onChange={handleChange}>
-            <MenuItem value={"Mensal"}>Mensal</MenuItem>
-            <MenuItem value={"Semestral"}>Semestral</MenuItem>
-            <MenuItem value={"Anual"}>Anual</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
+        <Grid item>
+          <TextField
+            name="vacancies"
+            label="Vagas Disponíveis"
+            variant="standard"
+            disabled
+            // style={{ width: "35%" }}
+            // onChange={handleChange}
+            value={lesson.vacancies}
+          />
+        </Grid>
+      </Grid>
     </form>
   );
 }
