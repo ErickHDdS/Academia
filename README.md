@@ -22,7 +22,7 @@ You can consult all info about dependencies, scripts, authors, etc. in [`package
 This project is protected by [copyright law](https://en.wikipedia.org/wiki/Copyright) making your copy or distribution illegal.
 
 ## Video
-[Academia MFAL](https://youtu.be/Fs_LbY0l2hU)
+[Academia MFAL](https://www.youtube.com/watch?v=Fs_LbY0l2hU)
 
 ## Developed by 
 [Erick Henrique](https://github.com/ErickHDdS) <br />
